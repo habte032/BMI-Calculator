@@ -27,11 +27,11 @@ A BMI (Body Mass Index) calculator built using Flutter. This app allows users to
  
 2,  to the project directory
  
-    cd bmi-calculator
+     cd bmi-calculator
 3, install dependecies
   
-    flutter pub get
+     flutter pub get
 4, run the app
 
-    flutter run
+     flutter run
 
