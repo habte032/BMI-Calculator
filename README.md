@@ -12,16 +12,13 @@ A BMI (Body Mass Index) calculator built using Flutter. This app allows users to
 - BMI Result: Display the calculated BMI, BMI range, and weight status.
 - Re-Calculate: Navigate back to the input screen to recalculate BMI.
 
-## Getting Started
-
-### Prerequisites
-
-- Flutter SDK: Follow the official Flutter installation guide to set up Flutter on your machine: https://flutter.dev/docs/get-started/install
-
 ### Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/bmi-calculator.git
+   https://github.com/habte032/BMI-Calculator.git
 
+cd bmi-calculator
+flutter pub get
+flutter run
