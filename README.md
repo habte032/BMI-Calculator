@@ -20,8 +20,8 @@ A BMI (Body Mass Index) calculator built using Flutter. This app allows users to
    https://github.com/habte032/BMI-Calculator.git
   ```bash
 cd bmi-calculator
-  ```bash
+
 flutter pub get
-  ```bash
+
 flutter run
-  ```bash
+
