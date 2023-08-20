@@ -182,7 +182,9 @@ class _InputpageState extends State<Inputpage> {
                     children: [
                     FloatingActionButton(onPressed: (){
                       setState(() {
-                        age--;
+                        if (age>0){
+                          age--;
+                        }
                       });
 
                     },
@@ -192,7 +194,9 @@ class _InputpageState extends State<Inputpage> {
                     SizedBox(width: 10,),
                     FloatingActionButton(onPressed: (){
                       setState(() {
-                        age++;
+                        if (age<250){
+                          age++;
+                        }
                       });
 
                     },
