@@ -80,52 +80,56 @@ class _InputpageState extends State<Inputpage> {
                   Text('$height',style: knumberstyle),
                   Text('cm',style: kstyle,)
                 ],),
-                 Expanded(
-                   child: Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     children: [
-                       Expanded(
-                         child: IconButton(onPressed: (){
-                          setState(() {
-                            height--;
-                          });
-                         }, icon: Icon(FontAwesomeIcons.minus)
-                         ),
-                       ),
-                       Expanded(
-                         flex: 7,
-                         child: SliderTheme(
-                           data: SliderThemeData(
-                             thumbColor: kpink,
-                             inactiveTrackColor: Color(0xff8d8e98),
-                             activeTrackColor: Colors.white,
-                             overlayColor: Color(0x29eb1555),
-                             thumbShape: RoundSliderThumbShape(enabledThumbRadius: 10),
-                             overlayShape: RoundSliderOverlayShape(overlayRadius: 20),
-
-                           ),
-                           child: Slider(value: height.toDouble(),
-                             min: 100.0,
-                             max: 250.0,
-                             divisions: 50,
-                             onChanged: (double newValue){
-                               setState(() {
-                                 height=newValue.round();
-                               });
-                             },),
-                         ),
-                       ),
-                       Expanded(
-                         child: IconButton(onPressed: (){
-                           setState(() {
-                             height++;
-                           });
-
-                         }, icon: Icon(FontAwesomeIcons.plus)),
-                       )
-
-                     ],),
-                 ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Expanded(
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              if (height > 1) { // Ensure height doesn't go below 1
+                                height--;
+                              }
+                            });
+                          },
+                          icon: Icon(FontAwesomeIcons.minus),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 7,
+                        child: SliderTheme(
+                          data: SliderThemeData(
+                            // ... (other slider theme properties)
+                          ),
+                          child: Slider(
+                            value: height.toDouble(),
+                            min: 1.0,
+                            max: 250.0,
+                            divisions: 250,
+                            onChanged: (double newValue) {
+                              setState(() {
+                                height = newValue.round();
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              if (height < 250) { // Ensure height doesn't go above 250
+                                height++;
+                              }
+                            });
+                          },
+                          icon: Icon(FontAwesomeIcons.plus),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),),
           ),
@@ -147,9 +151,10 @@ class _InputpageState extends State<Inputpage> {
                       children: [
                         FloatingActionButton(onPressed: (){
                           setState(() {
-                            weight--;
+                           if(weight>0) {
+                              weight--;
+                           }
                           });
-
                         },
                             backgroundColor: Color(0xff4c4f5e),
                             child: Icon(FontAwesomeIcons.minus,size: 18,color: kiconButtonColor,)
@@ -162,7 +167,7 @@ class _InputpageState extends State<Inputpage> {
 
                         },
                             backgroundColor: Color(0xff4c4f5e),
-                            child: Icon(FontAwesomeIcons.add,size: 18,color: kiconButtonColor,)
+                            child: const Icon(FontAwesomeIcons.add,size: 18,color: kiconButtonColor,)
                         )
                       ],)
                   ],
@@ -182,9 +187,7 @@ class _InputpageState extends State<Inputpage> {
                     children: [
                     FloatingActionButton(onPressed: (){
                       setState(() {
-                        if (age>0){
                           age--;
-                        }
                       });
 
                     },
@@ -194,8 +197,8 @@ class _InputpageState extends State<Inputpage> {
                     SizedBox(width: 10,),
                     FloatingActionButton(onPressed: (){
                       setState(() {
-                        if (age<250){
-                          age++;
+                        if (age>0){
+                          age--;
                         }
                       });
 
