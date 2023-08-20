@@ -151,7 +151,7 @@ class _InputpageState extends State<Inputpage> {
                       children: [
                         FloatingActionButton(onPressed: (){
                           setState(() {
-                           if(weight>0) {
+                           if(weight>1) {
                               weight--;
                            }
                           });
